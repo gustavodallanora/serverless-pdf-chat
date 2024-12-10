@@ -29,19 +29,19 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
             const match_suitable = message.data.content.match(/<suitable answer template>(.*?)<\/suitable answer template>/);
             const match_non_suitable = message.data.content.match(/<NON-suitable answer template>(.*?)<\/NON-suitable answer template>/);
             const formattedContent = match_suitable ? match_suitable[1] : (match_non_suitable ? match_non_suitable[1] : message.data.content); // Extract or fallback to original
-            return <div
-                    className={`${
-                      message.type === "ai"
-                        ? "justify-self-start w-fit rounded border border-gray-100 px-5 py-3.5 text-gray-800"
-                        : "" +
-                          "justify-self-end w-fit bg-slate-100 rounded border border-gray-100 px-5 py-3.5 text-gray-800"
-                    }`}
-                    key={i}
-                  >
-                    <div className="prose">
-                      <p><pre style="text-wrap-mode: wrap">{formattedContent}</pre></p>
-                    </div>
-                  </div>
+            <div
+              className={`${
+                message.type === "ai"
+                  ? "justify-self-start w-fit rounded border border-gray-100 px-5 py-3.5 text-gray-800"
+                  : "" +
+                    "justify-self-end w-fit bg-slate-100 rounded border border-gray-100 px-5 py-3.5 text-gray-800"
+              }`}
+              key={i}
+            >
+              <div className="prose">
+                <p><pre style="text-wrap-mode: wrap">{formattedContent}</pre></p>
+              </div>
+            </div>
           })}
           {messageStatus === "loading" && (
             <div className="justify-self-start w-fit rounded border border-gray-100 px-5 py-3.5 text-gray-800">
