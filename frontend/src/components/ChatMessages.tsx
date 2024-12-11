@@ -24,7 +24,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
       <div className="pb-5">
         <div className="grid gap-5">
           {conversation.messages
-          .filter(message => !message.data.content.startsWith("You are the manager of a grocery store."))
+          .filter(message => !message.data.content.startsWith("You are the manager of a company who purchases"))
           .map((message, i) => (
             <div
               className={`${
